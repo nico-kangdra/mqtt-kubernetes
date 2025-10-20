@@ -1,0 +1,34 @@
+image:
+  repository: eclipse-mosquitto
+  tag: 2.0.18
+
+service:
+  main:
+    ports:
+      mqtt:
+        port: 1883
+        protocol: TCP
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /mosquitto/data
+    size: 1Gi
+  config:
+    enabled: true
+    mountPath: /mosquitto/config
+    size: 256Mi
+
+config:
+  allow_anonymous: true
+  listener: 1883
+  persistence: true
+  persistence_location: /mosquitto/data/
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
