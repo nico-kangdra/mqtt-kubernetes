@@ -36,4 +36,9 @@
 
 ### Install Horizontal Pod Autoscaler
 
-1. 
+1. Create hpa.yml
+
+2. Deploy with
+   ```sh
+   kubectl apply -f hpa.yml
+   ```
